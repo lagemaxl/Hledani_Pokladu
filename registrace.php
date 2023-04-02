@@ -13,9 +13,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <?php
-        print_r($_POST);
-    ?>
     <form action="server.php" method="post">
 
         <label>Email:</label>
@@ -51,7 +48,7 @@
         function isInputFilled(inputName){
             let input = $("input[name="+inputName+"]");
             if(input.val().trim() == "")
-                input.after("<span class='error'>Chybí povinný údaj! Blbče!</span>")
+                input.after("<span class='error'>Chybí povinné pole</span>")
 
         }
 </script>
