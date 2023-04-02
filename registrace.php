@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrace</title>
+    <link rel="stylesheet" href="styly.css">
     <script
     src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
@@ -15,7 +16,7 @@
     <?php
         print_r($_POST);
     ?>
-    <form action="" method="post">
+    <form action="server.php" method="post">
 
         <label>Email:</label>
         <input type="email" name="email"><br>
