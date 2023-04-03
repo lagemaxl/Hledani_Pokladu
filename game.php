@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hledání Pokladu</title>
-    <link rel="stylesheet" href="styly.css">
+    <link rel="stylesheet" href="style/styly.css">
 </head>
 <body>
     <div class="poleLength">
@@ -26,6 +26,6 @@
 
 
 
-    <script src="game.js"></script>
+    <script src="script/game.js"></script>
 </body>
 </html>
