@@ -1,37 +1,88 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #006df5;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../files/background.webp);
+  background-size: cover;
+  height: 100vh;
+  padding: 20px;
+}
+
 .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-    font-family: Arial, sans-serif;
+  width: 100%;
+  max-width: 400px;
+  padding: 50px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form input[type="email"],
+.form input[type="password"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.form input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button{
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.Matav1 {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Media queries */
+@media only screen and (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    background-size: cover;
+    background-repeat: repeat;
   }
-  
-  .form label {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+  .form {
+    margin-right: 20px;
   }
-  
-  .form input[type="email"],
-  .form input[type="password"] {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    width: 100%;
+  .Matav1 {
+    margin-top: 0;
   }
-  
-  .form input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .form input[type="submit"]:hover {
-    background-color: #3e8e41;
-  }
-  
+}

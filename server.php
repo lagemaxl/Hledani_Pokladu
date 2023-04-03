@@ -42,4 +42,6 @@ if (isset($_POST['login'])) {
     }
 }
 
+require 'game.php';
+
 ?>
