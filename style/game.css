@@ -1,25 +1,50 @@
-.pole{
-    background-color: #000;
-    border: 1px solid #fff; 
-    float: left;
-    transform: translateY(-50px);
-    opacity: 0;
+.pole {
+  background-color: #000;
+  border: 1px solid #fff;
+  float: left;
+  transform: translateY(-50px);
+  opacity: 0;
+}
+
+.pole:hover{
+    background-color: #fff;
+    border: 1px solid #000;
+    cursor: crosshair;
+}
+
+.poklad{
+    background-color: red;
 }
 
 .pole.animate {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.5s, transform 0.5s;
-  }
-  
-
-.clear{
-    clear: both;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s, transform 0.5s;
 }
 
-.gameArea{
-    width: 500px;
-    height: 500px;
-    margin: 0 auto;
-    position: relative;
+.clear {
+  clear: both;
+}
+
+.gameArea {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.kompas{
+width: 200px;
+height: auto;
+position: absolute;
+top: 0;
+left: 0;
+}
+
+.kompasSmer {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
