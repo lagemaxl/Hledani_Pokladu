@@ -86,7 +86,7 @@ function Kompas(smersipky){
   kompasDiv.appendChild(kompas);
 
   const smer = document.createElement("img");
-  smer.src = "files/rucicka1.png";
+  smer.src = "files/sipka.png";
   smer.classList.add("kompasSmer");
   kompasDiv.appendChild(smer);
   if(smersipky == "nahoru"){
@@ -97,7 +97,16 @@ function Kompas(smersipky){
     smer.style.transform = "rotate(-90deg)";
   }else if(smersipky == "dolů"){
     smer.style.transform = "rotate(180deg)";
+  }else if(smersipky == "doprava dolů"){
+    smer.style.transform = "rotate(135deg)";
+  }else if(smersipky == "doleva dolů"){
+    smer.style.transform = "rotate(-135deg)";
+  }else if(smersipky == "doprava nahoru"){
+    smer.style.transform = "rotate(45deg)";
+  }else if(smersipky == "doleva nahoru"){
+    smer.style.transform = "rotate(-45deg)";
   }
+  
 }
 
 function getRandomNumber(min, max) {

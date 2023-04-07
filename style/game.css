@@ -6,14 +6,14 @@
   opacity: 0;
 }
 
-.pole:hover{
-    background-color: #fff;
-    border: 1px solid #000;
-    cursor: crosshair;
+.pole:hover {
+  background-color: #fff;
+  border: 1px solid #000;
+  cursor: crosshair;
 }
 
-.poklad{
-    background-color: red;
+.poklad {
+  background-color: red;
 }
 
 .pole.animate {
@@ -33,18 +33,29 @@
   position: relative;
 }
 
-.kompas{
-width: 200px;
-height: auto;
-position: absolute;
-top: 0;
-left: 0;
+.kompas {
+  width: 200px;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.kompasSmer {
+.kompasDiv{ 
     width: 200px;
-    height: auto;
+    height: 300px;
     position: absolute;
-    top: 0;
-    left: 0;
+    top:0;
+    left:0;
+    
+}
+
+
+.kompasSmer {
+  width: 150px;
+  height: auto;
+  position: absolute;
+  top: 30%;
+  left: 13%;
+  transform: translate(-50%, -50%);
 }
