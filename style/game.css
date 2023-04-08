@@ -1,3 +1,7 @@
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+
 .pole {
   background-color: #000;
   border: 1px solid #fff;
@@ -47,7 +51,7 @@
     position: absolute;
     top:0;
     left:0;
-    
+    display: block;
 }
 
 
@@ -59,3 +63,19 @@
   left: 13%;
   transform: translate(-50%, -50%);
 }
+
+.done{
+  display: none;
+  width: auto;
+  height: auto;
+  background-color: burlywood;
+  border: 5px solid brown;
+  color: black;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  padding: 1em;
+}
+

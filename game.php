@@ -13,8 +13,14 @@
             <label for="poleLength">Zadejte velikost pole:</label>
             <input type="number" name="poleLengthX" id="poleLengthX" min="5" max="20" value="10">
             <input type="number" name="poleLengthY" id="poleLengthY" min="5" max="20" value="10">
-            <input type="submit" value="Zvolit velikost">
+            <input type="submit" value="Začít hrát">
         </form>    
+    </div>
+
+    <div class="done">
+        <h1>Gratulujeme</h1>
+        <p>Našel jsi poklad na poli o velikosti <span id="poleLength"></span></p>
+        <p>Kliknul jsi celkem <span id="pocet"></span></p>
     </div>
 
 

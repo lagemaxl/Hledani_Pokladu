@@ -1,5 +1,8 @@
 document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault(); //zamezí odeslání formuláře a zobrazení výchozí stránky
+  document.querySelector("form").style.display = "none";
+  Kompas();
+OtocKompas("nahoru");
   var poleLengthX = document.getElementById("poleLengthX").value;
   var poleLengthY = document.getElementById("poleLengthY").value;
   var poleSize = [parseInt(poleLengthX), parseInt(poleLengthY)];
@@ -33,6 +36,8 @@ document.querySelector("form").addEventListener("submit", function (event) {
     pole.appendChild(div);
   }
 
+  let pocetKliknuti = 0;
+
   const poleDiv = document.querySelectorAll(".pole");
   poleDiv.forEach((pole) => {
     pole.addEventListener("click", () => {
@@ -40,41 +45,44 @@ document.querySelector("form").addEventListener("submit", function (event) {
       let x = index % poleSize[1];
       let y = Math.floor(index / poleSize[1]);
       console.log(x, y);
+      pocetKliknuti++;
       if (x < pokladX && y < pokladY) {
         console.log("Doprava dolů");
-        Kompas("doprava dolů");
+        OtocKompas("doprava dolů");
       } else if (x > pokladX && y < pokladY) {
         console.log("Doleva dolů");
-        Kompas("doleva dolů");
+        OtocKompas("doleva dolů");
       } else if (x < pokladX && y > pokladY) {
         console.log("Doprava nahoru");
-        Kompas("doprava nahoru");
+        OtocKompas("doprava nahoru");
       } else if (x > pokladX && y > pokladY) {
         console.log("Doleva nahoru");
-        Kompas("doleva nahoru");
+        OtocKompas("doleva nahoru");
       } else if (x < pokladX && y == pokladY) {
         console.log("Doprava");
-        Kompas("doprava");
+        OtocKompas("doprava");
       } else if (x > pokladX && y == pokladY) {
         console.log("Doleva");
-        Kompas("doleva");
+        OtocKompas("doleva");
       } else if (x == pokladX && y < pokladY) {
         console.log("Dolů");
-        Kompas("dolů");
+        OtocKompas("dolů");
       } else if (x == pokladX && y > pokladY) {
         console.log("Nahoru");
-        Kompas("nahoru");
+        OtocKompas("nahoru");
       } else if (x == pokladX && y == pokladY) {
         console.log("Nalezeno");
-        Kompas("nahoru");
+        OtocKompas("nahoru");
+        console.log(pocetKliknuti);
+        Dokonceno(pocetKliknuti, poleLengthX, poleLengthY);
       }
     });
   });
 });
 
-Kompas("nahoru");
 
-function Kompas(smersipky){
+
+function Kompas(){
   const kompasDiv = document.createElement("div");
   kompasDiv.classList.add("kompasDiv");
   document.body.appendChild(kompasDiv);
@@ -88,7 +96,11 @@ function Kompas(smersipky){
   const smer = document.createElement("img");
   smer.src = "files/sipka.png";
   smer.classList.add("kompasSmer");
-  kompasDiv.appendChild(smer);
+  kompasDiv.appendChild(smer);  
+}
+
+function OtocKompas(smersipky){
+  const smer = document.querySelector(".kompasSmer");
   if(smersipky == "nahoru"){
     smer.style.transform = "rotate(0deg)";
   }else if(smersipky == "doprava"){
@@ -106,8 +118,16 @@ function Kompas(smersipky){
   }else if(smersipky == "doleva nahoru"){
     smer.style.transform = "rotate(-45deg)";
   }
-  
 }
+
+function Dokonceno(pocet, x, y){
+  document.querySelector(".gameArea").style.display = "none";
+  document.querySelector(".kompasDiv").style.display="none";
+  document.querySelector(".done").style.display = "block";
+  document.getElementById("poleLength").innerHTML = "Pole: " + x + "x" + y;
+  document.getElementById("pocet").innerHTML = pocet + "x";
+}
+
 
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
