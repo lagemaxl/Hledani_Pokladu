@@ -42,6 +42,25 @@ if (isset($_POST['login'])) {
     }
 }
 
+if (isset($_POST['savedata'])) {
+    $conn = new mysqli("localhost", "root", "", "hledani_pokladu");
+    // Zpracování dat z AJAX požadavku
+    $user_id = $_POST['user_id'];
+    $poleX = $_POST['poleX'];
+    $poleY = $_POST['poleY'];
+    $click = $_POST['click'];
+
+    // SQL dotaz pro vložení dat do tabulky leaderboard
+    $sql = "INSERT INTO leaderboard (id_user, poleX, poleY, click) VALUES ('$user_id', '$poleX', '$poleY', '$click')";
+    $result = mysqli_query($connect, $sql);
+
+    if ($result) {
+        echo 'Data byla úspěšně uložena!';
+    } else {
+        echo 'Data se nepodařilo uložit!';
+    }
+}
+
 require 'game.php';
 
 ?>

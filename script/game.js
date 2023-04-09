@@ -1,24 +1,25 @@
-document.querySelector("form").addEventListener("submit", function (event) {
+document.querySelector("form").addEventListener("submit", function (event) { 
   event.preventDefault(); //zamezí odeslání formuláře a zobrazení výchozí stránky
   document.querySelector("form").style.display = "none";
   Kompas();
-OtocKompas("nahoru");
+  OtocKompas("nahoru");
   var poleLengthX = document.getElementById("poleLengthX").value;
   var poleLengthY = document.getElementById("poleLengthY").value;
   var poleSize = [parseInt(poleLengthX), parseInt(poleLengthY)];
   console.log(poleSize);
 
-  let pokladX = getRandomNumber(0, poleSize[0]-1);
-  let pokladY = getRandomNumber(0, poleSize[1]-1);
+  let pokladX = getRandomNumber(0, poleLengthX-1);
+  let pokladY = getRandomNumber(0, poleLengthY-1);
 
   console.log(pokladX, pokladY);
-
-  let widthPole = 500 / poleSize[1] - 2;
-  let heightPole = 500 / poleSize[0] - 2;
+  
+  let widthPole = 500 / poleLengthX;
+  let heightPole = 500 / poleLengthY;
+  
 
   const pole = document.querySelector(".gameArea");
-  for (let i = 0; i < poleSize[0]; i++) {
-    for (let j = 0; j < poleSize[1]; j++) {
+  for (let i = 0; i < poleLengthX; i++) {
+    for (let j = 0; j < poleLengthY; j++) {
       const div = document.createElement("div");
       div.classList.add("pole");
       div.style.width = widthPole + "px";
@@ -27,7 +28,7 @@ OtocKompas("nahoru");
       setTimeout(() => {
         div.classList.add("animate");
       }, 70 * i); //delay pro každý nový prvek
-      if (i == pokladY && j == pokladX) {
+      if (j == pokladX && i == pokladY) {
         div.classList.add("poklad");
       }
     }
@@ -80,13 +81,10 @@ OtocKompas("nahoru");
   });
 });
 
-
-
-function Kompas(){
+function Kompas() {
   const kompasDiv = document.createElement("div");
   kompasDiv.classList.add("kompasDiv");
   document.body.appendChild(kompasDiv);
-
 
   const kompas = document.createElement("img");
   kompas.src = "files/kompas.png";
@@ -96,38 +94,58 @@ function Kompas(){
   const smer = document.createElement("img");
   smer.src = "files/sipka.png";
   smer.classList.add("kompasSmer");
-  kompasDiv.appendChild(smer);  
+  kompasDiv.appendChild(smer);
 }
 
-function OtocKompas(smersipky){
+function OtocKompas(smersipky) {
   const smer = document.querySelector(".kompasSmer");
-  if(smersipky == "nahoru"){
+  if (smersipky == "nahoru") {
     smer.style.transform = "rotate(0deg)";
-  }else if(smersipky == "doprava"){
+  } else if (smersipky == "doprava") {
     smer.style.transform = "rotate(90deg)";
-  }else if(smersipky == "doleva"){
+  } else if (smersipky == "doleva") {
     smer.style.transform = "rotate(-90deg)";
-  }else if(smersipky == "dolů"){
+  } else if (smersipky == "dolů") {
     smer.style.transform = "rotate(180deg)";
-  }else if(smersipky == "doprava dolů"){
+  } else if (smersipky == "doprava dolů") {
     smer.style.transform = "rotate(135deg)";
-  }else if(smersipky == "doleva dolů"){
+  } else if (smersipky == "doleva dolů") {
     smer.style.transform = "rotate(-135deg)";
-  }else if(smersipky == "doprava nahoru"){
+  } else if (smersipky == "doprava nahoru") {
     smer.style.transform = "rotate(45deg)";
-  }else if(smersipky == "doleva nahoru"){
+  } else if (smersipky == "doleva nahoru") {
     smer.style.transform = "rotate(-45deg)";
   }
 }
 
-function Dokonceno(pocet, x, y){
+function Dokonceno(pocet, x, y) {
   document.querySelector(".gameArea").style.display = "none";
-  document.querySelector(".kompasDiv").style.display="none";
+  document.querySelector(".kompasDiv").style.display = "none";
   document.querySelector(".done").style.display = "block";
   document.getElementById("poleLength").innerHTML = "Pole: " + x + "x" + y;
   document.getElementById("pocet").innerHTML = pocet + "x";
-}
 
+  // Odeslání dat na server pomocí AJAX požadavku
+  $.ajax({
+    url: "server.php",
+    type: "POST",
+    name: "savedata",
+    data: {
+      user_id: 1,
+      poleX: x,
+      poleY: y,
+      click: pocet,
+    },
+    success: function (response) {
+      // V případě úspěšného uložení dat
+      console.log("Data byla úspěšně uložena");
+    },
+    error: function () {
+      // V případě chyby při ukládání dat
+      console.log("Došlo k chybě při ukládání dat");
+    },
+  });
+}
 
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;

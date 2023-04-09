@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hledání Pokladu</title>
     <link rel="stylesheet" href="style/game.css">
+    <script
+  src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+  crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="poleLength">
         <form>
             <label for="poleLength">Zadejte velikost pole:</label>
-            <input type="number" name="poleLengthX" id="poleLengthX" min="5" max="20" value="10">
-            <input type="number" name="poleLengthY" id="poleLengthY" min="5" max="20" value="10">
+            <input type="number" name="poleLengthX" id="poleLengthX" min="5" max="20" value="5">
+            <input type="number" name="poleLengthY" id="poleLengthY" min="5" max="20" value="20">
             <input type="submit" value="Začít hrát">
         </form>    
     </div>

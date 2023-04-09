@@ -4,7 +4,6 @@ body{
 
 .pole {
   background-color: #000;
-  border: 1px solid #fff;
   float: left;
   transform: translateY(-50px);
   opacity: 0;
@@ -12,7 +11,6 @@ body{
 
 .pole:hover {
   background-color: #fff;
-  border: 1px solid #000;
   cursor: crosshair;
 }
 
