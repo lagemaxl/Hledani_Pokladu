@@ -6,15 +6,17 @@ document.querySelector("form").addEventListener("submit", function (event) {
   var poleLengthX = document.getElementById("poleLengthX").value;
   var poleLengthY = document.getElementById("poleLengthY").value;
   var poleSize = [parseInt(poleLengthX), parseInt(poleLengthY)];
-  console.log(poleSize);
+  console.log("velikost pole: " + poleSize);
 
-  let pokladX = getRandomNumber(0, poleLengthX-1);
-  let pokladY = getRandomNumber(0, poleLengthY-1);
+  let pokladX = getRandomNumber(0, poleLengthY-2);
+  let pokladY = getRandomNumber(0, poleLengthX-2);
 
-  console.log(pokladX, pokladY);
+  console.log("souřadnice pokladu: " + pokladX, pokladY);
   
   let widthPole = 500 / poleLengthX;
   let heightPole = 500 / poleLengthY;
+
+  console.log("šířka pole: "+ widthPole, "výška pole: "+ heightPole);
   
 
   const pole = document.querySelector(".gameArea");
