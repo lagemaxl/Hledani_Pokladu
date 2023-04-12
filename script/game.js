@@ -8,8 +8,8 @@ document.querySelector("form").addEventListener("submit", function (event) {
   var poleSize = [parseInt(poleLengthX), parseInt(poleLengthY)];
   console.log("velikost pole: " + poleSize);
 
-  let pokladX = getRandomNumber(0, poleLengthY-2);
-  let pokladY = getRandomNumber(0, poleLengthX-2);
+  let pokladX = getRandomNumber(0, poleLengthX-2);
+  let pokladY = getRandomNumber(0, poleLengthY-2);
 
   console.log("souřadnice pokladu: " + pokladX, pokladY);
   
@@ -17,7 +17,6 @@ document.querySelector("form").addEventListener("submit", function (event) {
   let heightPole = 500 / poleLengthY;
 
   console.log("šířka pole: "+ widthPole, "výška pole: "+ heightPole);
-  
 
   const pole = document.querySelector(".gameArea");
   for (let i = 0; i < poleLengthX; i++) {
@@ -30,9 +29,6 @@ document.querySelector("form").addEventListener("submit", function (event) {
       setTimeout(() => {
         div.classList.add("animate");
       }, 70 * i); //delay pro každý nový prvek
-      if (j == pokladX && i == pokladY) {
-        div.classList.add("poklad");
-      }
     }
     const div = document.createElement("div");
     div.classList.add("clear");
@@ -45,8 +41,8 @@ document.querySelector("form").addEventListener("submit", function (event) {
   poleDiv.forEach((pole) => {
     pole.addEventListener("click", () => {
       let index = Array.prototype.indexOf.call(poleDiv, pole);
-      let x = index % poleSize[1];
-      let y = Math.floor(index / poleSize[1]);
+      let x = index % poleSize[0];
+      let y = Math.floor(index / poleSize[0]);
       console.log(x, y);
       pocetKliknuti++;
       if (x < pokladX && y < pokladY) {
@@ -78,6 +74,14 @@ document.querySelector("form").addEventListener("submit", function (event) {
         OtocKompas("nahoru");
         console.log(pocetKliknuti);
         Dokonceno(pocetKliknuti, poleLengthX, poleLengthY);
+      }
+
+      if(pole.style.backgroundColor == "red"){
+        pocetKliknuti--;
+      }
+
+      if(x != pokladX || y != pokladY){
+        pole.style.backgroundColor = "red";
       }
     });
   });
