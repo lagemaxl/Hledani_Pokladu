@@ -1,5 +1,6 @@
 <?php
 include 'connection.php';
+session_start();
 
 if (isset($_POST['register'])) {
     $email = $_POST['email'];
@@ -19,18 +20,17 @@ if (isset($_POST['register'])) {
             header('Location: game.php');
         }
     }
-}
-
-if (isset($_POST['login'])) {
+} elseif (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
-
     $sql = "SELECT * FROM users WHERE email = '$email'";
     $result = mysqli_query($connect, $sql);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row['password'])) {
             echo 'Přihlášení proběhlo úspěšně!';
+            $_SESSION['user_id'] = $row['id']; // ID uživatele
+
             header('Location: game.php');
         } else {
             require 'login.php';
@@ -40,24 +40,23 @@ if (isset($_POST['login'])) {
         require 'login.php';
         echo 'Špatný email!';
     }
-}
+} else {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $user_id = $_SESSION['user_id'];
+        $poleX = $_POST['poleX'];
+        $poleY = $_POST['poleY'];
+        $click = $_POST['click'];
+        if ($user_id != 0) {
+            // SQL dotaz pro vložení dat do tabulky leaderboard
+            $sql = "INSERT INTO leaderboard (id_user, poleX, poleY, clicks) VALUES ('$user_id', '$poleX', '$poleY', '$click')";
+            $result = mysqli_query($connect, $sql);
 
-if (isset($_POST['savedata'])) {
-    $conn = new mysqli("localhost", "root", "", "hledani_pokladu");
-    // Zpracování dat z AJAX požadavku
-    $user_id = $_POST['user_id'];
-    $poleX = $_POST['poleX'];
-    $poleY = $_POST['poleY'];
-    $click = $_POST['click'];
-
-    // SQL dotaz pro vložení dat do tabulky leaderboard
-    $sql = "INSERT INTO leaderboard (id_user, poleX, poleY, click) VALUES ('$user_id', '$poleX', '$poleY', '$click')";
-    $result = mysqli_query($connect, $sql);
-
-    if ($result) {
-        echo 'Data byla úspěšně uložena!';
-    } else {
-        echo 'Data se nepodařilo uložit!';
+            if ($result) {
+                echo 'Data byla úspěšně uložena!';
+            } else {
+                echo 'Data se nepodařilo uložit!';
+            }
+        }
     }
 }
 
