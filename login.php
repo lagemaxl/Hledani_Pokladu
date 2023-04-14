@@ -16,7 +16,7 @@
         <input type="password" name="password"><br>
         <input type="submit" name="login" value="Login">
         <a href="game.php">
-        <button>Hrát bez přihlášení</button>
+        <input type="submit" name="NoLogin" value="Hrát bez přihlášení">
         </a>
         <p>Not yet a member? <a href="registrace.php">Sign up</a></p>
     </form>

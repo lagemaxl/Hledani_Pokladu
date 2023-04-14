@@ -40,6 +40,9 @@ if (isset($_POST['register'])) {
         require 'login.php';
         echo 'Špatný email!';
     }
+} else if(isset($_POST['NoLogin'])){
+    require 'game.php';
+
 } else {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user_id = $_SESSION['user_id'];
