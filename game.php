@@ -15,8 +15,8 @@
     <div class="poleLength">
         <form>
             <label for="poleLength">Zadejte velikost pole:</label>
-            <input type="number" name="poleLengthX" id="poleLengthX" min="5" max="20" value="5">
-            <input type="number" name="poleLengthY" id="poleLengthY" min="5" max="20" value="20">
+            <input type="number" name="poleLengthX" id="poleLengthX" min="5" max="20" value="10">
+            <input type="number" name="poleLengthY" id="poleLengthY" min="5" max="20" value="10">
             <input type="submit" value="Začít hrát">
         </form>    
     </div>
@@ -25,6 +25,8 @@
         <h1>Gratulujeme</h1>
         <p>Našel jsi poklad na poli o velikosti <span id="poleLength"></span></p>
         <p>Kliknul jsi celkem <span id="pocet"></span></p>
+        <button><a href="game.php"> Zkusit znovu </a></button>
+        <button><a href="leaderboard.php">Výsledky</a></button>
     </div>
 
 
@@ -33,8 +35,7 @@
 
     </div>
 
-
-
+    <img src="files/Matav1.png" class="Matav1">
 
     <script src="script/game.js"></script>
 </body>

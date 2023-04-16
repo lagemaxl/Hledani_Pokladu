@@ -12,13 +12,13 @@
     <form action="server.php" method="POST" class="form">
         <label>Email:</label>
         <input type="email" name="email"><br>
-        <label>Password:</label>
+        <label>Heslo:</label>
         <input type="password" name="password"><br>
-        <input type="submit" name="login" value="Login">
+        <input type="submit" name="login" value="Přihlásit se">
         <a href="game.php">
         <input type="submit" name="NoLogin" value="Hrát bez přihlášení">
         </a>
-        <p>Not yet a member? <a href="registrace.php">Sign up</a></p>
+        <p>Nemáte účet? <a href="registrace.php">Zaregistrovat se</a></p>
     </form>
 
 

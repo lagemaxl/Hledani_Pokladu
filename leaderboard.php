@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style/leaderboard.css">
 </head>
 <body>
     <?php    
@@ -40,16 +41,19 @@
                $count++;
            }
            $avg_clicks = $total_clicks / $count;
-   
+           echo "<div class='box'>";
            echo "<h2>Velikost: $poleX x $poleY</h2>";
            echo "<p>Nejlepší počet tahů: $best_clicks</p>";
-           echo "<p>Průměrný počet tahů: $avg_clicks</p>";
+           echo "<p>Průměrný počet tahů: " . round($avg_clicks, 1) . "</p>";
            echo "<p>Nejhorší počet tahů: $worst_clicks</p>";
+           echo "<p>Celkový počet her: $count</p>";
+           echo "</div>";
        }
    } else {
        echo "Zatím nemáte žádné statistiky.";
    }
-   
     ?>
+
+<button> <a href="game.php">Hrát</a> </button>
 </body>
 </html>

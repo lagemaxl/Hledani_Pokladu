@@ -1,3 +1,7 @@
+var audio = new Audio('./files/hudbabg.mp3');
+audio.loop = true;
+audio.play();
+
 document.querySelector("form").addEventListener("submit", function (event) { 
   event.preventDefault(); //zamezí odeslání formuláře a zobrazení výchozí stránky
   document.querySelector("form").style.display = "none";
@@ -19,7 +23,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
   console.log("šířka pole: "+ widthPole, "výška pole: "+ heightPole);
 
   const pole = document.querySelector(".gameArea");
-  pole.style.backgroundImage = "url(" + "files/Matav1.png" + ")";
+  pole.style.backgroundImage = "url(" + "files/map.png" + ")";
   for (let i = 0; i < poleLengthX; i++) {
     for (let j = 0; j < poleLengthY; j++) {
       const div = document.createElement("div");

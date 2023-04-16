@@ -1,9 +1,14 @@
 body{
   font-family: 'Open Sans', sans-serif;
+  background-image: url("../files/pirateBg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .pole {
-  background-color: #000;
+  background-color: transparent;
   float: left;
   transform: translateY(-50px);
   opacity: 0;
@@ -14,9 +19,6 @@ body{
   cursor: crosshair;
 }
 
-.poklad {
-  background-color: red;
-}
 
 .pole.animate {
   opacity: 1;
@@ -32,7 +34,10 @@ body{
   width: 500px;
   height: 500px;
   margin: 0 auto;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .kompas {
@@ -50,6 +55,7 @@ body{
     top:0;
     left:0;
     display: block;
+    margin: 1em;
 }
 
 
@@ -60,20 +66,74 @@ body{
   top: 30%;
   left: 13%;
   transform: translate(-50%, -50%);
+  animation: spin;
+  animation-duration: 2s;
 }
 
 .done{
   display: none;
   width: auto;
   height: auto;
-  background-color: burlywood;
-  border: 5px solid brown;
-  color: black;
+  background-color: black;
+  color: white;
   text-align: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
   padding: 1em;
+  border-radius: 10px;
 }
 
+.done button{
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.done a {
+  color: black;
+  text-decoration: none;
+}
+
+form {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  margin: 0 auto;
+  }
+  
+  label {
+  display: block;
+  margin-bottom: 10px;
+  }
+  
+  input[type="number"] {
+  border: none;
+  background-color: #fff;
+  color: #000;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  }
+  
+  input[type="submit"] {
+  border: none;
+  background-color: #fff;
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+
+.Matav1{
+  width: 20%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
