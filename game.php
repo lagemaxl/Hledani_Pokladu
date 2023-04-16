@@ -15,8 +15,8 @@
     <div class="poleLength">
         <form>
             <label for="poleLength">Zadejte velikost pole:</label>
-            <input type="number" name="poleLengthX" id="poleLengthX" min="5" max="20" value="10">
-            <input type="number" name="poleLengthY" id="poleLengthY" min="5" max="20" value="10">
+            <input type="number" name="poleLengthX" id="poleLengthX" min="4" max="20" value="10">
+            <input type="number" name="poleLengthY" id="poleLengthY" min="4" max="20" value="10">
             <input type="submit" value="Začít hrát">
         </form>
 
