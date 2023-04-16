@@ -7,24 +7,49 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
-    include 'connection.php';
-    session_start();
-    //echo $_SESSION['user_id']; //kontrola zda se id uživatele přenáší
-    
-    $sql = "SELECT * FROM leaderboard WHERE id_user = {$_SESSION['user_id']}";
-    $result = $connect->query($sql);
+    <?php    
+   include 'connection.php';
+   session_start();
+   $user_id = $_SESSION['user_id'];
+   
+   $sql = "SELECT DISTINCT poleX, poleY FROM leaderboard WHERE id_user = $user_id";
+   $result = $connect->query($sql);
+   
+   if ($result->num_rows > 0) {
+       while($row = $result->fetch_assoc()) {
+           $poleX = $row['poleX'];
+           $poleY = $row['poleY'];
 
-    if ($result->num_rows > 0) {
-        echo "<table>";
-        echo "<th>PoleX</th><th>PoleY</th><th>Clicks</th></tr>";
-        while($row = $result->fetch_assoc()) {
-            echo "<td>".$row["poleX"]."</td><td>".$row["poleY"]."</td><td>".$row["clicks"]."</td></tr>";
-        }
-        echo "</table>";
-    } else {
-        echo "Zatím žádné záznamy";
-    }
+           $sql2 = "SELECT * FROM leaderboard WHERE id_user = $user_id AND poleX = $poleX AND poleY = $poleY";
+           $result2 = $connect->query($sql2);
+   
+           $best_clicks = 400; //vzhledem k tomu že pole může mít maximálně 400 políček, tak toto je maximální počet tahů 
+           $worst_clicks = 0;
+           $total_clicks = 0;
+           $count = 0;
+   
+           while($row2 = $result2->fetch_assoc()) {
+               $clicks = $row2['clicks'];
+               if ($clicks < $best_clicks) {
+                   $best_clicks = $clicks;
+               }
+               if ($clicks > $worst_clicks) {
+                   $worst_clicks = $clicks;
+               }
+               $total_clicks += $clicks;
+               $count++;
+           }
+           $avg_clicks = $total_clicks / $count;
+   
+           echo "<h2>Velikost: $poleX x $poleY</h2>";
+           echo "<p>Nejlepší počet tahů: $best_clicks</p>";
+           echo "<p>Průměrný počet tahů: $avg_clicks</p>";
+           echo "<p>Nejhorší počet tahů: $worst_clicks</p>";
+       }
+   } else {
+       echo "Zatím nemáte žádné statistiky.";
+   }
+   
     ?>
 </body>
 </html>
