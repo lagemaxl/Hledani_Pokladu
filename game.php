@@ -18,7 +18,13 @@
             <input type="number" name="poleLengthX" id="poleLengthX" min="5" max="20" value="10">
             <input type="number" name="poleLengthY" id="poleLengthY" min="5" max="20" value="10">
             <input type="submit" value="Začít hrát">
-        </form>    
+        </form>
+
+       
+        <video width="320" height="240" controls>
+            <source src="./files/MatavJdeProPoklad.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
 
     <div class="done">

@@ -2,9 +2,11 @@ var audio = new Audio('./files/hudbabg.mp3');
 audio.loop = true;
 audio.play();
 
+
 document.querySelector("form").addEventListener("submit", function (event) { 
   event.preventDefault(); //zamezí odeslání formuláře a zobrazení výchozí stránky
   document.querySelector("form").style.display = "none";
+  document.querySelector("video").style.display = "none";
   Kompas();
   OtocKompas("nahoru");
   var poleLengthX = document.getElementById("poleLengthX").value;
