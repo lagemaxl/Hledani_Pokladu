@@ -1,8 +1,3 @@
-var audio = new Audio('./files/hudbabg.mp3');
-audio.loop = true;
-audio.play();
-
-
 document.querySelector("form").addEventListener("submit", function (event) { 
   event.preventDefault(); //zamezí odeslání formuláře a zobrazení výchozí stránky
   document.querySelector("form").style.display = "none";
@@ -13,6 +8,10 @@ document.querySelector("form").addEventListener("submit", function (event) {
   var poleLengthY = document.getElementById("poleLengthY").value;
   var poleSize = [parseInt(poleLengthX), parseInt(poleLengthY)];
   console.log("velikost pole: " + poleSize);
+
+  var audio = new Audio('./files/hudbabg.mp3');
+  audio.loop = true;
+  audio.play();
 
   let pokladX = getRandomNumber(0, poleLengthX-2);
   let pokladY = getRandomNumber(0, poleLengthY-2);
