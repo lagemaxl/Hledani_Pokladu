@@ -17,7 +17,7 @@ if (isset($_POST['register'])) {
         $sql = "INSERT INTO users (email, password) VALUES ('$email', '$password')";
         if (mysqli_query($connect, $sql)) {
             echo 'Registrace proběhla úspěšně!';
-            header('Location: game.php');
+            header('Location: login.php');
         }
     }
 } elseif (isset($_POST['login'])) {
@@ -62,7 +62,5 @@ if (isset($_POST['register'])) {
         }
     }
 }
-
-require 'game.php';
 
 ?>
