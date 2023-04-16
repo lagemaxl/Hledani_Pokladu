@@ -40,6 +40,7 @@
         function isFormValid(event)
         {
             $(".error").remove();   
+            $("br").remove();
             isInputFilled("email");  
             isInputFilled("password");         
             isInputFilled("check_password");  
