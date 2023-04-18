@@ -23,11 +23,9 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
   console.log("šířka pole: "+ widthPole, "výška pole: "+ heightPole);
 
-  if(poleLengthX > poleLengthY){
-    let pom = poleLengthX;
-    poleLengthX = poleLengthY;
-    poleLengthY = pom; 
-  }
+  let pom = poleLengthX;
+  poleLengthX = poleLengthY;
+  poleLengthY = pom; 
 
   const pole = document.querySelector(".gameArea");
   pole.style.backgroundImage = "url(" + "files/map.png" + ")";
