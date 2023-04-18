@@ -8,14 +8,14 @@ body{
 }
 
 .pole {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.5);
   float: left;
   transform: translateY(-50px);
   opacity: 0;
 }
 
 .pole:hover {
-  background-color: #fff;
+  background-color: transparent;
   cursor: crosshair;
 }
 
