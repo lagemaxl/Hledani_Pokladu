@@ -55,43 +55,52 @@ document.querySelector("form").addEventListener("submit", function (event) {
       let y = Math.floor(index / poleSize[0]);
       console.log(x, y);
       pocetKliknuti++;
-      if (x < pokladX && y < pokladY) {
-        console.log("Doprava dolů");
-        OtocKompas("doprava dolů");
-      } else if (x > pokladX && y < pokladY) {
-        console.log("Doleva dolů");
-        OtocKompas("doleva dolů");
-      } else if (x < pokladX && y > pokladY) {
-        console.log("Doprava nahoru");
-        OtocKompas("doprava nahoru");
-      } else if (x > pokladX && y > pokladY) {
-        console.log("Doleva nahoru");
-        OtocKompas("doleva nahoru");
-      } else if (x < pokladX && y == pokladY) {
-        console.log("Doprava");
-        OtocKompas("doprava");
-      } else if (x > pokladX && y == pokladY) {
-        console.log("Doleva");
-        OtocKompas("doleva");
-      } else if (x == pokladX && y < pokladY) {
-        console.log("Dolů");
-        OtocKompas("dolů");
-      } else if (x == pokladX && y > pokladY) {
-        console.log("Nahoru");
-        OtocKompas("nahoru");
-      } else if (x == pokladX && y == pokladY) {
+      if (x == pokladX && y == pokladY) {
         console.log("Nalezeno");
         OtocKompas("nahoru");
         console.log(pocetKliknuti);
         Dokonceno(pocetKliknuti, poleLengthX, poleLengthY);
       }
 
-      if(pole.style.backgroundColor == "red"){
+      if(pole.style.backgroundColor == "black"){
         pocetKliknuti--;
       }
 
       if(x != pokladX || y != pokladY){
-        pole.style.backgroundColor = "red";
+        pole.style.backgroundColor = "black";
+        if (x < pokladX && y < pokladY) {
+          console.log("Doprava dolů");
+          OtocKompas("doprava dolů");
+          pole.innerHTML = "JV";
+        } else if (x > pokladX && y < pokladY) {
+          console.log("Doleva dolů");
+          OtocKompas("doleva dolů");
+          pole.innerHTML = "JZ";
+        } else if (x < pokladX && y > pokladY) {
+          console.log("Doprava nahoru");
+          OtocKompas("doprava nahoru");
+          pole.innerHTML = "SV";
+        } else if (x > pokladX && y > pokladY) {
+          console.log("Doleva nahoru");
+          OtocKompas("doleva nahoru");
+          pole.innerHTML = "SZ";
+        } else if (x < pokladX && y == pokladY) {
+          console.log("Doprava");
+          OtocKompas("doprava");
+          pole.innerHTML = "V";
+        } else if (x > pokladX && y == pokladY) {
+          console.log("Doleva");
+          OtocKompas("doleva");
+          pole.innerHTML = "Z";
+        } else if (x == pokladX && y < pokladY) {
+          console.log("Dolů");
+          OtocKompas("dolů");
+          pole.innerHTML = "J";
+        } else if (x == pokladX && y > pokladY) {
+          console.log("Nahoru");
+          OtocKompas("nahoru");
+          pole.innerHTML = "S";
+        }
       }
     });
   });

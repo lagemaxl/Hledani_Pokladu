@@ -12,6 +12,10 @@ body{
   float: left;
   transform: translateY(-50px);
   opacity: 0;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pole:hover {
