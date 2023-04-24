@@ -1,5 +1,10 @@
 # Hledání pokladu
 *Tento projekt mi byl zadán v hodině webových aplikací. Jedná se o jednu z maturitních otázek.*
+
+
+*Odkaz:* http://poklad.great-site.net/
+
+
 ## Popis projektu
 Vaším cílem je najít na poli libovolné zadané velikosti poklad. Pokud se přihlásíte tak uvidíte statistiky pro každou velikost pole. V zásadě jde o to najít poklad s co nejmenším počtem kliknutí.
 ## Jak aplikaci spustit?
