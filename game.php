@@ -31,8 +31,8 @@
         <h1>Gratulujeme</h1>
         <p>Našel jsi poklad na poli o velikosti <span id="poleLength"></span></p>
         <p>Kliknul jsi celkem <span id="pocet"></span></p>
-        <button><a href="game.php"> Zkusit znovu </a></button>
-        <button><a href="leaderboard.php">Výsledky</a></button>
+        <a href="game.php"><button>Zkusit znovu</button></a>
+        <a href="leaderboard.php"><button>Výsledky</button></a>
     </div>
 
 

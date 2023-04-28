@@ -54,6 +54,6 @@
    }
     ?>
 
-<button> <a href="game.php">Hrát</a> </button>
+<a href="game.php"><button>Hrát</button></a>
 </body>
 </html>
